@@ -4,45 +4,58 @@ const path = require("path");
 
 const app = express();
 
-// Middleware (to read form data)
+// Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname));
 
-// 🔗 CONNECT TO MONGODB ATLAS (non-SRV string)
-mongoose.connect("mongodb://JustinCheong:stampylongnose334@ac-admyvf7-shard-00-00.7l6v8u2.mongodb.net:27017,ac-admyvf7-shard-00-01.7l6v8u2.mongodb.net:27017,ac-admyvf7-shard-00-02.7l6v8u2.mongodb.net:27017/portfolioDB?ssl=true&replicaSet=atlas-9hcugh-shard-0&authSource=admin&retryWrites=true&w=majority")
+// 🔗 MongoDB Atlas Connection
+mongoose.connect("mongodb+srv://JustinCheong:stampylongnose334@cluster0.7l6v8u2.mongodb.net/portfolioDB?retryWrites=true&w=majority&appName=Cluster0")
 .then(() => console.log("✅ MongoDB Connected Successfully"))
-.catch(err => console.log("❌ MongoDB Connection Error:", err));
+.catch(err => console.log("❌ MongoDB Error:", err));
 
-// 📦 Schema
-const userSchema = new mongoose.Schema({
-    name: String
+// 📦 Schema (Contact Form Data)
+const contactSchema = new mongoose.Schema({
+    name: String,
+    email: String,
+    message: String,
+    date: {
+        type: Date,
+        default: Date.now
+    }
 });
 
 // 📂 Model
-const User = mongoose.model("User", userSchema);
+const Contact = mongoose.model("Contact", contactSchema);
 
-// 🏠 Serve HTML
+// 🏠 Home Route
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "index.html"));
 });
 
-// 📥 Handle form submission
+// 📥 Handle Form Submission
 app.post("/submit", async (req, res) => {
     try {
-        const newUser = new User({
-            name: req.body.name
+        const newContact = new Contact({
+            name: req.body.name,
+            email: req.body.email,
+            message: req.body.message
         });
 
-        await newUser.save();
+        await newContact.save();
 
-        res.send("✅ Data saved successfully!");
-    } catch (error) {
-        console.log(error);
-        res.send("❌ Error saving data");
+        res.send(`
+            <h2 style="font-family: sans-serif; text-align:center; margin-top:50px;">
+                ✅ Message sent successfully!<br><br>
+                <a href="/">Go Back</a>
+            </h2>
+        `);
+    } catch (err) {
+        console.log(err);
+        res.send("❌ Error saving message");
     }
 });
 
-// 🚀 Dynamic Port for Render
+// 🚀 Start Server
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {

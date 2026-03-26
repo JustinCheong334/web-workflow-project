@@ -3,92 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Workflow Project</title>
+    <title>Justin Cheong Portfolio</title>
+
+    <!-- Google Font (Avenir alternative) -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
 
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Avenir, sans-serif;
+            font-family: 'Nunito', sans-serif;
         }
 
         body {
-            height: 100vh;
-            background: linear-gradient(135deg, #0f172a, #1e293b);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background: #0f172a;
+            color: white;
         }
 
-        .container {
-            background: #1e293b;
-            padding: 40px;
-            border-radius: 20px;
-            width: 350px;
+        header {
             text-align: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            padding: 50px;
+        }
+
+        header img {
+            width: 150px;
+            border-radius: 50%;
+            border: 3px solid #38bdf8;
+        }
+
+        h1 {
+            margin-top: 15px;
+            font-size: 2.5rem;
+        }
+
+        p {
+            color: #cbd5f5;
+        }
+
+        section {
+            padding: 40px;
+            max-width: 800px;
+            margin: auto;
         }
 
         h2 {
-            color: #fff;
-            margin-bottom: 25px;
+            color: #38bdf8;
+            margin-bottom: 10px;
         }
 
-        input {
-            width: 100%;
-            padding: 12px;
+        .skills span {
+            display: inline-block;
+            background: #1e293b;
+            padding: 10px;
+            margin: 5px;
             border-radius: 8px;
-            border: none;
-            margin-bottom: 20px;
-            font-size: 14px;
         }
 
-        input:focus {
-            outline: none;
+        .project {
+            background: #1e293b;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input, textarea {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
         }
 
         button {
-            background: #22c55e;
-            color: white;
+            padding: 12px;
+            background: #38bdf8;
             border: none;
-            padding: 12px 20px;
-            border-radius: 8px;
+            border-radius: 5px;
             cursor: pointer;
-            font-size: 15px;
-            transition: 0.2s;
+            font-weight: bold;
         }
 
         button:hover {
-            background: #16a34a;
-        }
-
-        .footer {
-            margin-top: 20px;
-            font-size: 12px;
-            color: #94a3b8;
+            background: #0ea5e9;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h2>Enter Your Name</h2>
+<header>
+    <!-- YOUR IMAGE -->
+    <img src="profile.jpg" alt="Justin">
 
-        <form action="/submit" method="POST">
-            <input 
-                type="text" 
-                name="name" 
-                placeholder="Your Name" 
-                required
-            >
-            <button type="submit">Submit</button>
-        </form>
+    <h1>Justin Cheong</h1>
+    <p>BCA Student | Web Developer | Music Producer</p>
+</header>
 
-        <div class="footer">
-            Data will be saved to MongoDB 🚀
-        </div>
+<section>
+    <h2>About Me</h2>
+    <p>
+        I am a BCA student at Kristu Jayanti College passionate about web development and music production.
+        I aim to pursue a Master's in Computer Science abroad and build impactful digital experiences.
+    </p>
+</section>
+
+<section>
+    <h2>Skills</h2>
+    <div class="skills">
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+        <span>Node.js</span>
+        <span>MongoDB</span>
+        <span>GitHub</span>
+        <span>FL Studio</span>
     </div>
+</section>
+
+<section>
+    <h2>Projects</h2>
+    <div class="project">
+        <h3>Web Workflow Project</h3>
+        <p>Full stack project with frontend, backend, GitHub, and deployment.</p>
+    </div>
+</section>
+
+<section>
+    <h2>Contact Me</h2>
+    <form action="/submit" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
 
 </body>
 </html>
