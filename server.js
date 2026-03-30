@@ -5,15 +5,16 @@ const path = require("path");
 const app = express();
 
 // Middleware
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname));
 
-// 🔗 MongoDB Atlas Connection
+// MongoDB
 mongoose.connect("mongodb+srv://JustinCheong:stampylongnose334@cluster0.7l6v8u2.mongodb.net/portfolioDB?retryWrites=true&w=majority&appName=Cluster0")
-.then(() => console.log("✅ MongoDB Connected Successfully"))
-.catch(err => console.log("❌ MongoDB Error:", err));
+.then(() => console.log("✅ MongoDB Connected"))
+.catch(err => console.log(err));
 
-// 📦 Schema (Contact Form Data)
+// Schema
 const contactSchema = new mongoose.Schema({
     name: String,
     email: String,
@@ -24,40 +25,36 @@ const contactSchema = new mongoose.Schema({
     }
 });
 
-// 📂 Model
 const Contact = mongoose.model("Contact", contactSchema);
 
-// 🏠 Home Route
+// Home
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "index.html"));
 });
 
-// 📥 Handle Form Submission
+// POST (save data)
 app.post("/submit", async (req, res) => {
     try {
-        const newContact = new Contact({
-            name: req.body.name,
-            email: req.body.email,
-            message: req.body.message
-        });
-
+        const newContact = new Contact(req.body);
         await newContact.save();
-
-        res.send(`
-            <h2 style="font-family: sans-serif; text-align:center; margin-top:50px;">
-                ✅ Message sent successfully!<br><br>
-                <a href="/">Go Back</a>
-            </h2>
-        `);
+        res.json({ success: true });
     } catch (err) {
-        console.log(err);
-        res.send("❌ Error saving message");
+        res.status(500).send("Error saving data");
     }
 });
 
-// 🚀 Start Server
-const PORT = process.env.PORT || 3000;
+// GET (fetch all messages)
+app.get("/messages", async (req, res) => {
+    try {
+        const messages = await Contact.find().sort({ date: -1 });
+        res.json(messages);
+    } catch (err) {
+        res.status(500).send("Error fetching data");
+    }
+});
 
+// Start server
+const PORT = 3000;
 app.listen(PORT, () => {
-    console.log(`🚀 Server running on port ${PORT}`);
+    console.log(`🚀 Running on http://localhost:${PORT}`);
 });
