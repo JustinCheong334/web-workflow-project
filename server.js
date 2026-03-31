@@ -6,14 +6,15 @@ const app = express();
 
 // Middleware
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json()); // 🔥 IMPORTANT for fetch
 app.use(express.static(__dirname));
 
-// 🔗 MongoDB Atlas Connection
+// MongoDB Connection
 mongoose.connect("mongodb+srv://JustinCheong:stampylongnose334@cluster0.7l6v8u2.mongodb.net/portfolioDB?retryWrites=true&w=majority&appName=Cluster0")
 .then(() => console.log("✅ MongoDB Connected Successfully"))
 .catch(err => console.log("❌ MongoDB Error:", err));
 
-// 📦 Schema (Contact Form Data)
+// Schema
 const contactSchema = new mongoose.Schema({
     name: String,
     email: String,
@@ -24,15 +25,15 @@ const contactSchema = new mongoose.Schema({
     }
 });
 
-// 📂 Model
+// Model
 const Contact = mongoose.model("Contact", contactSchema);
 
-// 🏠 Home Route
+// Home Route
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "index.html"));
 });
 
-// 📥 Handle Form Submission
+// Submit Form
 app.post("/submit", async (req, res) => {
     try {
         const newContact = new Contact({
@@ -43,19 +44,25 @@ app.post("/submit", async (req, res) => {
 
         await newContact.save();
 
-        res.send(`
-            <h2 style="font-family: sans-serif; text-align:center; margin-top:50px;">
-                ✅ Message sent successfully!<br><br>
-                <a href="/">Go Back</a>
-            </h2>
-        `);
+        res.json({ success: true });
+
     } catch (err) {
         console.log(err);
-        res.send("❌ Error saving message");
+        res.json({ success: false });
     }
 });
 
-// 🚀 Start Server
+// 🔥 NEW ROUTE → GET ALL MESSAGES
+app.get("/messages", async (req, res) => {
+    try {
+        const messages = await Contact.find().sort({ date: -1 });
+        res.json(messages);
+    } catch (err) {
+        res.json([]);
+    }
+});
+
+// Start Server
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
