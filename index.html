@@ -14,20 +14,11 @@
             font-family: 'Nunito', sans-serif;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             background: linear-gradient(135deg, #0b1120, #111827, #1e293b);
             color: #f8fafc;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
         }
 
         .container {
@@ -39,30 +30,17 @@
         nav {
             position: sticky;
             top: 0;
-            z-index: 1000;
             backdrop-filter: blur(12px);
             background: rgba(15, 23, 42, 0.75);
-            border-bottom: 1px solid rgba(255,255,255,0.08);
         }
 
         .nav-content {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             padding: 18px 0;
         }
 
-        .logo {
-            font-size: 1.3rem;
-            font-weight: 800;
-            color: #38bdf8;
-        }
-
-        .nav-links a {
-            margin-left: 22px;
-            color: #cbd5e1;
-            font-weight: 600;
-        }
+        .logo { color: #38bdf8; font-weight: 800; }
 
         header {
             min-height: 100vh;
@@ -74,8 +52,6 @@
             display: grid;
             grid-template-columns: 1.2fr 0.8fr;
             gap: 40px;
-            align-items: center;
-            padding: 60px 0;
         }
 
         .hero-card img {
@@ -84,9 +60,7 @@
             border-radius: 50%;
         }
 
-        section {
-            padding: 80px 0;
-        }
+        section { padding: 80px 0; }
 
         .contact-box {
             background: rgba(255,255,255,0.06);
@@ -110,16 +84,28 @@
         button {
             padding: 14px;
             border-radius: 12px;
-            background: #38bdf8;
+            background: linear-gradient(90deg, #38bdf8, #0ea5e9);
             font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* 🔥 NEW: Message styling */
+        #messageList {
+            margin-top: 20px;
         }
 
         #messageList div {
-            margin-top: 10px;
-            padding: 10px;
-            border: 1px solid #38bdf8;
-            border-radius: 10px;
+            margin-bottom: 12px;
+            padding: 12px;
+            border-radius: 12px;
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid rgba(56, 189, 248, 0.3);
         }
+
+        #messageList strong {
+            color: #38bdf8;
+        }
+
     </style>
 </head>
 <body>
@@ -127,17 +113,28 @@
 <nav>
     <div class="container nav-content">
         <div class="logo">Justin Cheong</div>
-        <div class="nav-links">
-            <a href="#contact">Contact</a>
-        </div>
     </div>
 </nav>
+
+<header>
+    <div class="container hero">
+        <div>
+            <h1>Hi, I'm <span style="color:#38bdf8;">Justin Cheong</span></h1>
+            <p>BCA student, web developer & music producer.</p>
+        </div>
+
+        <div class="hero-card">
+            <img src="profile.jpg">
+        </div>
+    </div>
+</header>
 
 <section id="contact">
     <div class="container">
         <h2>Contact Me</h2>
 
         <div class="contact-box">
+
             <!-- ✅ UPDATED FORM -->
             <form id="contactForm">
                 <input type="text" id="name" name="name" placeholder="Your Name" required>
@@ -146,18 +143,19 @@
                 <button type="submit">Send Message</button>
             </form>
 
-            <!-- ✅ ADDED MESSAGE DISPLAY -->
+            <!-- ✅ LIVE MESSAGES -->
             <h2 style="margin-top:30px;">Messages</h2>
             <div id="messageList"></div>
+
         </div>
     </div>
 </section>
 
-<footer>
+<footer style="text-align:center; padding:20px;">
     © 2025 Justin Cheong
 </footer>
 
-<!-- ✅ LINKED SCRIPT -->
+<!-- ✅ CONNECT FRONTEND TO BACKEND -->
 <script src="script.js"></script>
 
 </body>
