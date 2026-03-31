@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Justin Cheong | Portfolio</title>
-    <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap)" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         * {
@@ -36,7 +36,6 @@
             margin: auto;
         }
 
-        /* Navbar */
         nav {
             position: sticky;
             top: 0;
@@ -57,26 +56,18 @@
             font-size: 1.3rem;
             font-weight: 800;
             color: #38bdf8;
-            letter-spacing: 0.5px;
         }
 
         .nav-links a {
             margin-left: 22px;
             color: #cbd5e1;
             font-weight: 600;
-            transition: 0.3s;
         }
 
-        .nav-links a:hover {
-            color: #38bdf8;
-        }
-
-        /* Hero */
         header {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            position: relative;
         }
 
         .hero {
@@ -87,181 +78,20 @@
             padding: 60px 0;
         }
 
-        .hero-text h1 {
-            font-size: 3.2rem;
-            line-height: 1.1;
-            margin-bottom: 18px;
-        }
-
-        .hero-text h1 span {
-            color: #38bdf8;
-        }
-
-        .hero-text p {
-            color: #cbd5e1;
-            font-size: 1.05rem;
-            margin-bottom: 28px;
-            max-width: 600px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 22px;
-            border-radius: 10px;
-            font-weight: 700;
-            transition: 0.3s ease;
-        }
-
-        .btn-primary {
-            background: linear-gradient(90deg, #38bdf8, #0ea5e9);
-            color: #0f172a;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(56, 189, 248, 0.35);
-        }
-
-        .btn-secondary {
-            border: 1px solid rgba(255,255,255,0.15);
-            color: #e2e8f0;
-            background: rgba(255,255,255,0.03);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255,255,255,0.08);
-        }
-
-        .hero-card {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255,255,255,0.1);
-            backdrop-filter: blur(14px);
-            padding: 30px;
-            border-radius: 24px;
-            text-align: center;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-        }
-
         .hero-card img {
             width: 190px;
             height: 190px;
-            object-fit: cover;
             border-radius: 50%;
-            border: 4px solid #38bdf8;
-            margin-bottom: 18px;
-            box-shadow: 0 0 30px rgba(56, 189, 248, 0.25);
         }
 
-        .hero-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 8px;
-        }
-
-        .hero-card p {
-            color: #cbd5e1;
-        }
-
-        /* Sections */
         section {
             padding: 80px 0;
         }
 
-        .section-title {
-            font-size: 2rem;
-            margin-bottom: 12px;
-            color: #38bdf8;
-        }
-
-        .section-subtitle {
-            color: #cbd5e1;
-            margin-bottom: 35px;
-            max-width: 700px;
-        }
-
-        /* About */
-        .about-box {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.08);
-            padding: 30px;
-            border-radius: 20px;
-            color: #e2e8f0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        /* Skills */
-        .skills-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-        }
-
-        .skills-grid span {
-            background: rgba(30, 41, 59, 0.85);
-            color: #f8fafc;
-            padding: 12px 18px;
-            border-radius: 12px;
-            border: 1px solid rgba(56, 189, 248, 0.2);
-            transition: 0.3s;
-        }
-
-        .skills-grid span:hover {
-            transform: translateY(-4px);
-            background: #0f172a;
-            border-color: #38bdf8;
-        }
-
-        /* Projects */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 22px;
-        }
-
-        .project-card {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 18px;
-            padding: 24px;
-            transition: 0.35s ease;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .project-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(56, 189, 248, 0.5);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-
-        .project-card h3 {
-            margin-bottom: 10px;
-            color: #f8fafc;
-        }
-
-        .project-card p {
-            color: #cbd5e1;
-            margin-bottom: 15px;
-        }
-
-        .project-tag {
-            display: inline-block;
-            font-size: 0.85rem;
-            color: #38bdf8;
-            font-weight: 700;
-        }
-
-        /* Contact */
         .contact-box {
             background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 20px;
             padding: 30px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+            border-radius: 20px;
         }
 
         form {
@@ -271,210 +101,64 @@
         }
 
         input, textarea {
-            width: 100%;
-            padding: 14px 16px;
+            padding: 14px;
             border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.08);
             background: rgba(15, 23, 42, 0.85);
-            color: #f8fafc;
-            outline: none;
-            transition: 0.3s ease;
-        }
-
-        input::placeholder,
-        textarea::placeholder {
-            color: #94a3b8;
-        }
-
-        input:focus,
-        textarea:focus {
-            border-color: #38bdf8;
-            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
-        }
-
-        textarea {
-            min-height: 140px;
-            resize: vertical;
+            color: white;
         }
 
         button {
             padding: 14px;
-            border: none;
             border-radius: 12px;
-            background: linear-gradient(90deg, #38bdf8, #0ea5e9);
-            color: #0f172a;
-            font-weight: 800;
-            cursor: pointer;
-            transition: 0.3s ease;
+            background: #38bdf8;
+            font-weight: bold;
         }
 
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 24px rgba(56, 189, 248, 0.35);
-        }
-
-        footer {
-            text-align: center;
-            padding: 25px 15px 35px;
-            color: #94a3b8;
-            font-size: 0.95rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 900px) {
-            .hero {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero-text p {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .hero-buttons {
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .nav-content {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .nav-links a {
-                margin: 0 10px;
-            }
-
-            .hero-text h1 {
-                font-size: 2.3rem;
-            }
-
-            .hero-card img {
-                width: 150px;
-                height: 150px;
-            }
-
-            section {
-                padding: 60px 0;
-            }
+        #messageList div {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #38bdf8;
+            border-radius: 10px;
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="container nav-content">
-            <div class="logo">Justin Cheong</div>
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
-            </div>
+<nav>
+    <div class="container nav-content">
+        <div class="logo">Justin Cheong</div>
+        <div class="nav-links">
+            <a href="#contact">Contact</a>
         </div>
-    </nav>
+    </div>
+</nav>
 
-    <header>
-        <div class="container hero">
-            <div class="hero-text">
-                <h1>Hi, I'm <span>Justin Cheong</span></h1>
-                <p>
-                    BCA student, aspiring web developer, and music producer creating clean digital experiences
-                    with creativity, code, and modern design.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">View Projects</a>
-                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
-                </div>
-            </div>
+<section id="contact">
+    <div class="container">
+        <h2>Contact Me</h2>
 
-            <div class="hero-card">
-                <img src="profile.jpg" alt="Justin Cheong">
-                <h3>Justin Cheong</h3>
-                <p>BCA Student | Web Developer | Music Producer</p>
-            </div>
+        <div class="contact-box">
+            <!-- ✅ UPDATED FORM -->
+            <form id="contactForm">
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+
+            <!-- ✅ ADDED MESSAGE DISPLAY -->
+            <h2 style="margin-top:30px;">Messages</h2>
+            <div id="messageList"></div>
         </div>
-    </header>
+    </div>
+</section>
 
-    <section id="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <p class="section-subtitle">A quick introduction about who I am and what I aim to build.</p>
-            <div class="about-box">
-                <p>
-                    I am a BCA student at Kristu Jayanti (Deemed To Be University) with a strong interest in web development,
-                    and creative digital work. I enjoy building projects that combine design,
-                    usability, and functionality. My long-term goal is to pursue a Master's in Computer Science
-                    abroad and contribute to impactful technology solutions.
-                </p>
-            </div>
-        </div>
-    </section>
+<footer>
+    © 2025 Justin Cheong
+</footer>
 
-    <section id="skills">
-        <div class="container">
-            <h2 class="section-title">Skills</h2>
-            <p class="section-subtitle">Technologies and tools I use in development and creative work.</p>
-            <div class="skills-grid">
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>JavaScript</span>
-                <span>Node.js</span>
-                <span>Express.js</span>
-                <span>MongoDB</span>
-                <span>Git & GitHub</span>
-                <span>Responsive Design</span>
-                <span>FL Studio</span>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects">
-        <div class="container">
-            <h2 class="section-title">Projects</h2>
-            <p class="section-subtitle">Some work that reflects my learning and practical skills.</p>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h3>Web Workflow Project</h3>
-                    <p>Full stack project featuring frontend, backend, GitHub version control, and deployment workflow.</p>
-                    <span class="project-tag">Full Stack</span>
-                </div>
-
-                <div class="project-card">
-                    <h3>Portfolio Website</h3>
-                    <p>A personal responsive portfolio website to showcase my skills, projects, and contact information.</p>
-                    <span class="project-tag">Frontend</span>
-                </div>
-
-                <div class="project-card">
-                    <h3>Music Production Showcase</h3>
-                    <p>A creative concept project to present audio work, branding, and visual identity in one place.</p>
-                    <span class="project-tag">Creative Tech</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="container">
-            <h2 class="section-title">Contact Me</h2>
-            <p class="section-subtitle">Have an opportunity, collaboration, or message? Send it here.</p>
-            <div class="contact-box">
-                <form action="/submit" method="POST">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
-                    <textarea name="message" placeholder="Your Message" required></textarea>
-                    <button type="submit">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        © 2025 Justin Cheong. All rights reserved.
-    </footer>
+<!-- ✅ LINKED SCRIPT -->
+<script src="script.js"></script>
 
 </body>
 </html>
